@@ -39,6 +39,10 @@ app.get('/api', function(req, res){
   res.end();
 })
 
-module.exports =  app.listen(port, () => {
-  console.log(`Launching server on http://localhost:${ port }`)
-});
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(`Launching server on http://localhost:${ port }`)
+  });
+}
+
+module.exports = app;
